@@ -479,8 +479,10 @@ LONG APIENTRY MainWndProc(
             if (IsIconic(hwnd)) 
             { 
                 SetCursor(hCurs1); 
-                break; 
+                return 1; // further processing halted 
             } 
+            
+            return 0; // further processing not halted
  
         case WM_DESTROY: 
         // Destroy timer. 
